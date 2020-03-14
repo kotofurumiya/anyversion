@@ -1,0 +1,12 @@
+[package]
+name = "anyversion"
+version = "0.1.0"
+edition = "2018"
+authors = ["Koto Furumiya <kotofurumiya@gmail.com>"]
+repository = "https://github.com/kotofurumiya/anyversion"
+keywords = ["version", "utility", "cli"]
+license-file = "LICENSE.md"
+readme = "README.md"
+description = "An utility command to just show a version of arbitrary command."
+
+[dependencies]
