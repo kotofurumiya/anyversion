@@ -35,8 +35,8 @@ fn main() {
         Ok(o) => {
             let stdout = String::from_utf8(o.stdout).expect("");
             let stderr = String::from_utf8(o.stderr).expect("");
-            println!("{}", stdout);
-            println!("{}", stderr);
+            print!("{}", stdout);
+            print!("{}", stderr);
         }
         Err(e) => eprintln!("{}", e),
     }
