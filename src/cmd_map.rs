@@ -14,6 +14,7 @@ mod linux_essentials;
 mod media;
 mod nodejs;
 mod python;
+mod ruby;
 mod rust;
 
 #[derive(Copy, Clone)]
