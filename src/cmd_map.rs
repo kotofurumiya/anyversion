@@ -39,8 +39,8 @@ fn sub_command_version() -> Vec<&'static str> {
     return vec!["version"];
 }
 
-pub fn build_command_map() -> HashMap<String, CommandInfo> {
-    cmd_list::COMMAND_LIST.iter().map(|ci| (ci.command_name.to_string(), *ci)).collect()
+pub fn build_command_map() -> HashMap<&'static str, CommandInfo> {
+    cmd_list::COMMAND_LIST.iter().map(|ci| (ci.command_name, *ci)).collect()
 }
 
 #[test]
