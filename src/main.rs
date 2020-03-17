@@ -17,7 +17,7 @@ fn main() {
 
     // get command-specific version arg from map.
     let cmd_map = cmd_map::build_command_map();
-    let cmd_info = match cmd_map.get(cmd_name) {
+    let cmd_info = match cmd_map.get(cmd_name as &str) {
         Some(c) => c,
         None => {
             eprintln!("Command `{}` is not supported", cmd_name);

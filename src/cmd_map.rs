@@ -39,15 +39,8 @@ fn sub_command_version() -> Vec<&'static str> {
     return vec!["version"];
 }
 
-pub fn build_command_map() -> HashMap<String, CommandInfo> {
-    let mut cmd_map = HashMap::new();
-
-    for cmd in cmd_list::get_cmd_list().iter() {
-        let cmd_name = cmd.command_name.to_string();
-        cmd_map.insert(cmd_name, *cmd);
-    }
-
-    cmd_map
+pub fn build_command_map() -> HashMap<&'static str, CommandInfo> {
+    cmd_list::COMMAND_LIST.iter().map(|ci| (ci.command_name, *ci)).collect()
 }
 
 #[test]
@@ -56,9 +49,9 @@ fn test_rust_toolchain() {
     let rustc = map.get("rustc").expect("error!");
     let cargo = map.get("cargo").expect("error!");
 
-    assert!(rustc.command_name == "rustc");
-    assert!((rustc.get_version_args)()[0] == "--version");
+    assert_eq!(rustc.command_name, "rustc");
+    assert_eq!((rustc.get_version_args)()[0], "--version");
 
-    assert!(cargo.command_name == "cargo");
-    assert!((cargo.get_version_args)()[0] == "--version");
+    assert_eq!(cargo.command_name, "cargo");
+    assert_eq!((cargo.get_version_args)()[0],"--version");
 }
